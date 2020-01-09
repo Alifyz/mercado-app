@@ -13,14 +13,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Provider.of<ApplicationModel>(context).add(
-            GroceryList(
-              id: 1,
-              title: 'Testing the Title',
-              description: 'Some description',
-              isFavorite: true
-            )
-          );
+          Navigator.pushNamed(context, '/add-list');
         },
       ),
       body: Consumer<ApplicationModel>(
@@ -34,6 +27,9 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(model.groceryList[index].title),
+                    onTap: () {
+                      print("chamar o SetState no Item correto $index");
+                    },
                   );
                 },
                 itemCount: model.groceryList.length,
