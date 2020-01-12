@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/pages/add_items/add_items.dart';
-import 'package:groceryapp/pages/add_list/add_list.dart';
 import 'package:groceryapp/pages/home/home.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +14,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         routes: {
           '/': (context) => HomePage(),
-          '/add-list': (context) =>  AddListPage(),
           '/add-items': (context) => AddItemsPage()
         },
         title: 'GroceryListing App',
