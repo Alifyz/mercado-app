@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/domain/grocery_list.dart';
 import 'package:groceryapp/model/application_model.dart';
+import 'package:groceryapp/pages/home/widget/empty_list.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,9 +20,7 @@ class HomePage extends StatelessWidget {
       body: Consumer<ApplicationModel>(
         builder: (context, model, child) {
           if(model.groceryList.length == 0) {
-            return Center(
-              child: Text("Empty list, add some data"),
-            );
+            return EmptyListWidget();
           }else if(model.groceryList.isNotEmpty){
             return ListView.builder(
                 itemBuilder: (context, index) {
