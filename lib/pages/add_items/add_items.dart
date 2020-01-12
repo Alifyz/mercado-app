@@ -11,7 +11,7 @@ class AddItemsPage extends StatelessWidget {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(10, (index) {
+        children: List.generate(6, (index) {
           return Card(
             child: Center(
               child: Column(
