@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/pages/add_items/widgets/cleaning_category.dart';
+import 'package:groceryapp/pages/add_items/widgets/dairy_category.dart';
+import 'package:groceryapp/pages/add_items/widgets/meat_category.dart';
+import 'package:groceryapp/pages/add_items/widgets/vegetables_category.dart';
 
 class AddItemsPage extends StatelessWidget {
   const AddItemsPage({Key key}) : super(key: key);
@@ -11,22 +15,12 @@ class AddItemsPage extends StatelessWidget {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(6, (index) {
-          return Card(
-            child: Center(
-              child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  child: Image.asset('img/meat.png'),
-                  width: 48,
-                  height: 48,
-                ),
-                Text("Category $index")
-              ],
-            )),
-          );
-        }),
+        children: <Widget>[
+         MeatCategory(),
+         DairyCategory(),
+         CleaningCategory(),
+         VegetablesCategory()
+        ],
       ),
     );
   }
