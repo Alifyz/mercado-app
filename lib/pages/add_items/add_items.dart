@@ -13,7 +13,7 @@ class AddItemsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Adicionar items"),
       ),
-      body: GridView.count(
+      body: GridView.count( 
         crossAxisCount: 2,
         children: <Widget>[
          MeatCategory(),
