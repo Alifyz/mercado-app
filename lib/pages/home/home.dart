@@ -13,25 +13,25 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/add-items');
+          //Navigator.pushNamed(context, '/add-items');
+          makeDialog(context);
         },
       ),
       body: Consumer<ApplicationModel>(
         builder: (context, model, child) {
-          if(model.groceryList.length == 0) {
+          if (model.groceryList.length == 0) {
             return EmptyListWidget();
-          }else if(model.groceryList.isNotEmpty){
+          } else if (model.groceryList.isNotEmpty) {
             return ListView.builder(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(model.groceryList[index].title),
-                    onTap: () {
-                    },
-                  );
-                },
-                itemCount: model.groceryList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(model.groceryList[index].title),
+                  onTap: () {},
+                );
+              },
+              itemCount: model.groceryList.length,
             );
-          }else {
+          } else {
             return Center(
               child: Text("Some error has occur"),
             );
@@ -39,5 +39,35 @@ class HomePage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> makeDialog(BuildContext context) {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Nova lista"),
+            content:  TextFormField(
+              decoration: InputDecoration(
+                hintText: "Nome da sua lista de compras..."
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("CRIAR"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  //Navigator.pushNamed(context, '/add-items');
+                },
+              ),
+              FlatButton(
+                child: Text("CANCELAR"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          );
+        });
   }
 }
