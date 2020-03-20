@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/pages/home/widget/empty_list.dart';
+import 'package:groceryapp/pages/home/widget/shooping_list_dialog.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +14,6 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          //Navigator.pushNamed(context, '/add-items');
           makeDialog(context);
         },
       ),
@@ -39,35 +39,5 @@ class HomePage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Future<void> makeDialog(BuildContext context) {
-    return showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Nova lista"),
-            content:  TextFormField(
-              decoration: InputDecoration(
-                hintText: "Nome da sua lista de compras..."
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: Text("CRIAR"),
-                onPressed: () {
-                  Navigator.pop(context);
-                  //Navigator.pushNamed(context, '/add-items');
-                },
-              ),
-              FlatButton(
-                child: Text("CANCELAR"),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
-            ],
-          );
-        });
   }
 }
