@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const meatTitle = "Carnes";
+
 class MeatCategory extends StatelessWidget {
 
   const MeatCategory({Key key}) : super(key: key);
@@ -22,7 +24,7 @@ class MeatCategory extends StatelessWidget {
                 SizedBox(
                   height: 4,
                 ),
-                Text("Carnes")
+                Text(meatTitle)
               ],
             ),
           ),
