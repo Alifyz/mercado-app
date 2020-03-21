@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/domain/grocery_item.dart';
+import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/widgets/grocery_category.dart';
 
 class AddItemsPage extends StatelessWidget {
-  const AddItemsPage({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,22 +15,42 @@ class AddItemsPage extends StatelessWidget {
         children: <Widget>[
           GroceryCategory(
             title: 'Carnes',
-            onDetailsScreen: () {},
+            onDetailsScreen: () => Navigator.pushNamed(
+              context,
+              '/add-items-details',
+              arguments: AddDetailsArguments(categoryName: Category.Meat),
+            ),
             assetPath: 'img/meat.png',
           ),
           GroceryCategory(
             title: 'Laticínios',
-            onDetailsScreen: () {},
+            onDetailsScreen: () =>
+                Navigator.pushNamed(context, '/add-items-details',
+                    arguments: AddDetailsArguments(
+                      categoryName: Category.Milk,
+                    )),
             assetPath: 'img/milk.png',
           ),
           GroceryCategory(
             title: 'Limpeza',
-            onDetailsScreen: () {},
+            onDetailsScreen: () => Navigator.pushNamed(
+              context,
+              '/add-items-details',
+              arguments: AddDetailsArguments(
+                categoryName: Category.Cleaning,
+              ),
+            ),
             assetPath: 'img/cleaning.png',
           ),
           GroceryCategory(
             title: 'Legumes',
-            onDetailsScreen: () {},
+            onDetailsScreen: () => Navigator.pushNamed(
+              context,
+              '/add-items-details',
+              arguments: AddDetailsArguments(
+                categoryName: Category.Fiber,
+              ),
+            ),
             assetPath: 'img/fiber.png',
           ),
         ],

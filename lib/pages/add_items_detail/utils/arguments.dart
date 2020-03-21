@@ -1,4 +1,8 @@
+import 'package:groceryapp/domain/grocery_item.dart';
+
 class AddDetailsArguments {
-  final int categoryId;
-  AddDetailsArguments(this.categoryId);
+  final Category categoryName;
+  AddDetailsArguments({
+    this.categoryName,
+  });
 }

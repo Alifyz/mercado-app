@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
           makeDialog(context);
         },
       ),
-      body: Placeholder() 
+      body: Container() 
     );
   }
 }

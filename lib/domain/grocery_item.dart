@@ -1,10 +1,12 @@
 class GroceryItem {
+  final int id;
   final String title;
   final int quantity;
   final MeasureUnits measureUnits;
   final Category category;
 
   GroceryItem({
+    this.id,
     this.title,
     this.quantity,
     this.measureUnits,
@@ -20,4 +22,7 @@ enum MeasureUnits {
 
 enum Category {
   Meat,
+  Milk,
+  Cleaning,
+  Fiber,
 }
