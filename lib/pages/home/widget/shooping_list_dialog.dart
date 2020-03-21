@@ -23,7 +23,11 @@ Future<void> makeDialog(BuildContext context) {
             FlatButton(
               child: Text(createButtonText),
               onPressed: () {
-                Navigator.popAndPushNamed(context, '/add-items');
+                Navigator.pushNamed(
+                  context,
+                  '/user-list',
+                  arguments: _textController.text,
+                );
               },
             ),
             FlatButton(

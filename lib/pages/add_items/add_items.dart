@@ -15,7 +15,7 @@ class AddItemsPage extends StatelessWidget {
         children: <Widget>[
           GroceryCategory(
             title: 'Carnes',
-            onDetailsScreen: () => Navigator.pushNamed(
+            onDetailsScreen: () => Navigator.popAndPushNamed(
               context,
               '/add-items-details',
               arguments: AddDetailsArguments(categoryName: Category.Meat),
@@ -24,16 +24,18 @@ class AddItemsPage extends StatelessWidget {
           ),
           GroceryCategory(
             title: 'Laticínios',
-            onDetailsScreen: () =>
-                Navigator.pushNamed(context, '/add-items-details',
-                    arguments: AddDetailsArguments(
-                      categoryName: Category.Milk,
-                    )),
+            onDetailsScreen: () => Navigator.popAndPushNamed(
+              context,
+              '/add-items-details',
+              arguments: AddDetailsArguments(
+                categoryName: Category.Milk,
+              ),
+            ),
             assetPath: 'img/milk.png',
           ),
           GroceryCategory(
             title: 'Limpeza',
-            onDetailsScreen: () => Navigator.pushNamed(
+            onDetailsScreen: () => Navigator.popAndPushNamed(
               context,
               '/add-items-details',
               arguments: AddDetailsArguments(
@@ -44,7 +46,7 @@ class AddItemsPage extends StatelessWidget {
           ),
           GroceryCategory(
             title: 'Legumes',
-            onDetailsScreen: () => Navigator.pushNamed(
+            onDetailsScreen: () => Navigator.popAndPushNamed(
               context,
               '/add-items-details',
               arguments: AddDetailsArguments(
