@@ -13,27 +13,48 @@ class AddItemsDetailsPage extends StatelessWidget {
         title: Text('Lista de ${getHeader(args.categoryName)}'),
       ),
       body: FutureBuilder(
-        future: Repository.getAllGroceries(),
-        builder: (context, snapshot) {
-          if(snapshot.hasData) {
-            print(snapshot.data);
-            return Container();
-          }else {
-            return Container(
-              child: Center(
-                child: Text('Error loading data'),
-              ),
-            );
-          }  
-      }),
+          future: Repository.getAllGroceries(),
+          builder: (context, AsyncSnapshot<List<GroceryItem>> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(snapshot.data[index].title),
+                        );
+                      },
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text('has error'),
+                    );
+                  }
+                }
+                break;
+              case ConnectionState.waiting:
+                {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              default:
+                {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+            }
+          }),
     );
   }
 }
 
-
-
 String getHeader(Category category) {
-  switch(category) {
+  switch (category) {
     case Category.Meat:
       return "carnes";
       break;
@@ -46,8 +67,9 @@ String getHeader(Category category) {
     case Category.Fiber:
       return "legumes";
       break;
-    default: {
-      return "items";
-    }
+    default:
+      {
+        return "items";
+      }
   }
 }

@@ -2,7 +2,7 @@ class GroceryItem {
   final int id;
   final String title;
   final int quantity;
-  final Category category;
+  final String category;
 
   GroceryItem({
     this.id,

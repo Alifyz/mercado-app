@@ -9,15 +9,17 @@ class DatabaseHelper {
     return openDatabase(
       databasePath,
       version: 1,
-      onCreate: (db, version) {
-          db.execute("""
+      onCreate: _populateData
+    );
+  }
+
+  static void _populateData(Database db, int version) async {
+    await db.execute("""
             CREATE TABLE $TABLE_NAME(
               id INTEGER PRIMARY KEY, 
               title TEXT, 
               quantity INTEGER, 
               category TEXT)""");
-          db.execute('$INSERT_MEATS');
-      },
-    );
+    await db.execute('$INSERT_MEATS');
   }
 }
