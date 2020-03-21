@@ -9,13 +9,12 @@ class AddItemsDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AddDetailsArguments args = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de ${getHeader(args.categoryName)}'),
       ),
       body: FutureBuilder(
-          future: Repository.getAllGroceries(),
+          future: Repository.getGroceriesByCategory(getQueryCategory(args.categoryName)),
           builder: (context, AsyncSnapshot<List<GroceryItem>> snapshot) {
             if (!snapshot.hasError && snapshot.hasData) {
               return GroceryListWidget(data: snapshot.data);
@@ -36,4 +35,3 @@ class AddItemsDetailsPage extends StatelessWidget {
     );
   }
 }
-
