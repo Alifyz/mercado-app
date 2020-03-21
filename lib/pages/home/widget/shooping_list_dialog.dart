@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 const title = "Nova lista";
 const inputDescription = "Nome da sua lista de compras...";
 const createButtonText = "CRIAR";
 const cancelButtonText = "CANCELAR";
 
 Future<void> makeDialog(BuildContext context) {
+  TextEditingController _textController = TextEditingController();
   return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -16,8 +16,8 @@ Future<void> makeDialog(BuildContext context) {
           ),
           title: Text(title),
           content: TextFormField(
-            decoration:
-                InputDecoration(hintText: inputDescription),
+            controller: _textController,
+            decoration: InputDecoration(hintText: inputDescription),
           ),
           actions: <Widget>[
             FlatButton(

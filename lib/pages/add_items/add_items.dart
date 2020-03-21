@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/pages/add_items/widgets/cleaning_category.dart';
-import 'package:groceryapp/pages/add_items/widgets/dairy_category.dart';
-import 'package:groceryapp/pages/add_items/widgets/meat_category.dart';
-import 'package:groceryapp/pages/add_items/widgets/vegetables_category.dart';
+import 'package:groceryapp/widgets/grocery_category.dart';
 
 class AddItemsPage extends StatelessWidget {
   const AddItemsPage({Key key}) : super(key: key);
@@ -13,13 +10,29 @@ class AddItemsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Adicionar items"),
       ),
-      body: GridView.count( 
+      body: GridView.count(
         crossAxisCount: 2,
         children: <Widget>[
-         MeatCategory(),
-         DairyCategory(),
-         CleaningCategory(),
-         VegetablesCategory()
+          GroceryCategory(
+            title: 'Carnes',
+            onDetailsScreen: () {},
+            assetPath: 'img/meat.png',
+          ),
+          GroceryCategory(
+            title: 'Laticínios',
+            onDetailsScreen: () {},
+            assetPath: 'img/milk.png',
+          ),
+          GroceryCategory(
+            title: 'Limpeza',
+            onDetailsScreen: () {},
+            assetPath: 'img/cleaning.png',
+          ),
+          GroceryCategory(
+            title: 'Legumes',
+            onDetailsScreen: () {},
+            assetPath: 'img/fiber.png',
+          ),
         ],
       ),
     );
