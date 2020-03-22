@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 class Repository {
   Future<List<GroceryItem>> getGroceriesByCategory(String category) async {
-    final Database db = await DatabaseHelper.setupDatabase();
+    final Database db = await DatabaseHelper.initDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       TABLE_GROCERIES,
       columns: ['id, title, quantity, category'],
@@ -24,7 +24,7 @@ class Repository {
   }
 
   Future<List<GroceryItem>> getAllGroceries() async {
-    final Database db = await DatabaseHelper.setupDatabase();
+    final Database db = await DatabaseHelper.initDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       TABLE_GROCERIES,
     );
@@ -39,7 +39,7 @@ class Repository {
   }
 
   Future<List<GroceryList>> getSavedLists() async {
-    final Database db = await DatabaseHelper.setupDatabase();
+    final Database db = await DatabaseHelper.initDatabase();
     final List<Map<String, dynamic>> result = await db.query(TABLE_USERLIST,
         columns: ['id, listName, item_id, isChecked'],
         distinct: true,
@@ -54,17 +54,53 @@ class Repository {
     });
   }
 
-  Future<void> saveCurrentItems(
+  Future<List<GroceryItem>> getGroceriesByListName(String listName) async {
+    final Database db = await DatabaseHelper.initDatabase();
+    final List<Map<String, dynamic>> result = await db.query(
+      TABLE_USERGROCERIES,
+      columns: ['id, title, item_id, isChecked'],
+      where: 'listName = ?',
+      whereArgs: [listName],
+    );
+
+    return List.generate(result.length, (index) {
+      return GroceryItem(
+        id: result[index]['id'],
+        title: result[index]['title'],
+        isChecked: result[index]['isChecked'] == 0 ? false : true
+      );
+    });
+  }
+
+  // Future<void> saveCurrentItems(
+  //     String listName, List<GroceryItem> selectedItems) async {
+  //   final Database db = await DatabaseHelper.initDatabase();
+  //   for (GroceryItem item in selectedItems) {
+  //     Map<String, dynamic> data = {
+  //       'listName': listName,
+  //       'item_id': item.id,
+  //       'isChecked': 0
+  //     };
+  //     await db.insert(
+  //       TABLE_USERLIST,
+  //       data,
+  //       conflictAlgorithm: ConflictAlgorithm.replace,
+  //     );
+  //   }
+  // }
+
+  Future<void> saveUserGroceriesList(
       String listName, List<GroceryItem> selectedItems) async {
-    final Database db = await DatabaseHelper.setupDatabase();
+    final Database db = await DatabaseHelper.initDatabase();
     for (GroceryItem item in selectedItems) {
       Map<String, dynamic> data = {
         'listName': listName,
         'item_id': item.id,
-        'isChecked': 0
+        'isChecked': 0,
+        'title': item.title,
       };
       await db.insert(
-        TABLE_USERLIST,
+        TABLE_USERGROCERIES,
         data,
         conflictAlgorithm: ConflictAlgorithm.replace,
       );

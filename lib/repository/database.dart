@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseHelper {
-  static Future<Database> setupDatabase() async {
+  static Future<Database> initDatabase() async {
     var path = await getDatabasesPath();
     var databasePath = join(path, DB_NAME);
     return openDatabase(
@@ -16,6 +16,7 @@ class DatabaseHelper {
   static void _populateData(Database db, int version) async {
     await db.execute(DATABASE_GROCERIES);
     await db.execute(DATABASE_USERLIST);
+    await db.execute(DATABASE_USER_GROCERIES);
     await db.execute(INSERT_MEATS);
     await db.execute(INSERT_MILKS);
     await db.execute(INSERT_CLEANING);

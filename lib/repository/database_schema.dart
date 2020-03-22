@@ -1,6 +1,7 @@
 const DB_NAME = "grocery_db";
 const TABLE_GROCERIES = "groceries_list";
 const TABLE_USERLIST = "user_lists";
+const TABLE_USERGROCERIES = 'user_groceries';
 
 const DATABASE_GROCERIES = """
             CREATE TABLE $TABLE_GROCERIES(
@@ -14,6 +15,15 @@ const DATABASE_USERLIST = """
               id INTEGER PRIMARY KEY AUTOINCREMENT, 
               listName TEXT, 
               item_id INTEGER,
+              isChecked INTEGER)""";
+
+const DATABASE_USER_GROCERIES = """
+            CREATE TABLE $TABLE_USERGROCERIES(
+              id INTEGER PRIMARY KEY AUTOINCREMENT, 
+              title TEXT, 
+              quantity INTEGER, 
+              category TEXT,
+              listName  TEXT,
               isChecked INTEGER)""";
 
 const INSERT_MEATS = """

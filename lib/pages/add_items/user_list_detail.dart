@@ -37,7 +37,7 @@ class UserListPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          await repository.saveCurrentItems(
+          await repository.saveUserGroceriesList(
             listName,
             appModel.getCurrentGroceries(),
           );
