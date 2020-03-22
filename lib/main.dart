@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             AddItemsPage.route: (context) => AddItemsPage(),
             AddItemsDetailsPage.route: (context) => AddItemsDetailsPage()
           },
-          title: 'GroceryListing App',
+          title: 'MercadoApp',
           theme: ThemeData(
             primarySwatch: Colors.green,
           ),

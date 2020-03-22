@@ -27,6 +27,11 @@ class HomePage extends StatelessWidget {
               future: appModel.getSavedLists(),
               builder: (context, AsyncSnapshot<List<GroceryItem>> snapshot) {
                 if (!snapshot.hasError && snapshot.hasData) {
+                  if (snapshot.data.isEmpty) {
+                    return Center(
+                      child: Image.asset('img/empty.png'),
+                    );
+                  }
                   return ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (contex, index) {
@@ -46,10 +51,14 @@ class HomePage extends StatelessWidget {
                         );
                       });
                 }
-                return CircularProgressIndicator();
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
               });
         },
-        child: CircularProgressIndicator(),
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

@@ -57,7 +57,7 @@ class Repository  {
     final Database db = await DatabaseHelper.initDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       TABLE_USERGROCERIES,
-      columns: ['id, title, isChecked, listName'],
+      columns: ['id, title, isChecked, listName, category'],
       where: 'listName = ?',
       whereArgs: [listName],
     );
@@ -67,6 +67,7 @@ class Repository  {
           id: result[index]['id'],
           title: result[index]['title'],
           listName: result[index]['listName'],
+          category: result[index]['category'],
           isChecked: result[index]['isChecked'] == 0 ? false : true);
     });
   }
@@ -80,6 +81,7 @@ class Repository  {
         'listName': listName,
         'isChecked': 0,
         'title': item.title,
+        'category': item.category
       };
       await db.insert(
         TABLE_USERGROCERIES,

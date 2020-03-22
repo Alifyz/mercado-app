@@ -49,6 +49,7 @@ flutter:
      - img/milk.png
      - img/cleaning.png
      - img/fiber.png
+     - img/
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

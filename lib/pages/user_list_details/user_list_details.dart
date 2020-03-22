@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceryapp/domain/grocery_item.dart';
 import 'package:groceryapp/model/application_model.dart';
+import 'package:groceryapp/pages/user_list_details/utils/icons_utils.dart';
 import 'package:groceryapp/pages/user_list_details/utils/user_list_arguments.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +33,8 @@ class UserListDetailsPage extends StatelessWidget {
                           },
                           title: Text(snapshot.data[index].title),
                           value: snapshot.data[index].isChecked,
+                          secondary: getIconFromcategory(
+                              snapshot.data[index].category),
                         ),
                       );
                     },
@@ -41,7 +44,11 @@ class UserListDetailsPage extends StatelessWidget {
               },
             );
           },
-          child: CircularProgressIndicator(),
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ));
   }
 }
+
+
