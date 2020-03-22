@@ -5,7 +5,6 @@ import 'package:groceryapp/repository/repository.dart';
 import 'package:provider/provider.dart';
 
 class UserListPage extends StatelessWidget {
-
   static String route = '/user-list';
 
   @override
@@ -42,7 +41,12 @@ class UserListPage extends StatelessWidget {
             listName,
             appModel.getCurrentGroceries(),
           );
-          Navigator.pushNamed(context, HomePage.route);
+          appModel.clearList();
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            HomePage.route,
+            (Route<dynamic> route) => false,
+          );
         },
         label: Text('SALVAR LISTA'),
       ),

@@ -22,22 +22,6 @@ class Repository {
     });
   }
 
-  Future<GroceryItem> getGroceriesById(int id) async {
-    if (id != null) {
-      final Database db = await DatabaseHelper.setupDatabase();
-      final List<Map<String, dynamic>> result = await db.query(TABLE_GROCERIES,
-          columns: ['id, title, quantity, category'],
-          where: 'id = ?',
-          whereArgs: [id],
-          distinct: true);
-      return GroceryItem(
-          id: result[0]['id'],
-          title: result[0]['title'],
-          quantity: result[0]['quantity'],
-          category: result[0]['category']);
-    }
-  }
-
   Future<List<GroceryItem>> getAllGroceries() async {
     final Database db = await DatabaseHelper.setupDatabase();
     final List<Map<String, dynamic>> result = await db.query(
@@ -64,21 +48,5 @@ class Repository {
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
     }
-  }
-
-  Future<List<GroceryItem>> getSavedItems(String listName) async {
-    final Database db = await DatabaseHelper.setupDatabase();
-    final List<Map<String, dynamic>> result = await db.query(
-      TABLE_USERLIST,
-      columns: ['listName', 'item_id'],
-      where: 'listName = ?',
-      whereArgs: [listName],
-    );
-
-    List<GroceryItem> savedItems = List();
-    result.forEach((row) async {
-      savedItems.add(await getGroceriesById(row['id']));
-    });
-    return savedItems;
   }
 }

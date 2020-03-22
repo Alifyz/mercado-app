@@ -4,7 +4,6 @@ import 'package:groceryapp/domain/grocery_item.dart';
 class AppModel with ChangeNotifier {
   List<GroceryItem> _items = [];
   List<int> _selectedItems = [];
-  String _currentListName;
 
   void addItem(GroceryItem newItem) {
     if (!_items.contains(newItem)) {
@@ -21,15 +20,13 @@ class AppModel with ChangeNotifier {
     return _items;
   }
 
-  void setCurrentList(String listName) {
-    _currentListName = listName;
-  }
-
-  String getCurrentList() {
-    return _currentListName;
-  }
-
   List<int> getSelectedItems() {
     return _selectedItems;
   }
+
+  void clearList() {
+    _items.clear();
+    _selectedItems.clear();
+  }
+
 }
