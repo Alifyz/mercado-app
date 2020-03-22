@@ -1,13 +1,9 @@
 class GroceryList {
   final int id;
-  final String title;
-  final String description;
-  final bool isFavorite;
+  final String name;
 
   GroceryList({
     this.id,
-    this.title,
-    this.description,
-    this.isFavorite,
+    this.name,
   });
 }
