@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:groceryapp/domain/grocery_item.dart';
-import 'package:groceryapp/domain/grocery_list.dart';
 
 class AppModel with ChangeNotifier {
   List<GroceryItem> _items = [];
   List<int> _selectedItems = [];
-  GroceryList _grocerylist;
+  String _currentListName;
 
   void addItem(GroceryItem newItem) {
     if (!_items.contains(newItem)) {
@@ -18,9 +17,16 @@ class AppModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void addGroceryList(GroceryList newList) {
-    _grocerylist = newList;
-    notifyListeners();
+  List<GroceryItem> getCurrentGroceries() {
+    return _items;
+  }
+
+  void setCurrentList(String listName) {
+    _currentListName = listName;
+  }
+
+  String getCurrentList() {
+    return _currentListName;
   }
 
   List<int> getSelectedItems() {

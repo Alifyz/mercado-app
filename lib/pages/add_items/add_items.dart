@@ -4,6 +4,9 @@ import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/widgets/grocery_category.dart';
 
 class AddItemsPage extends StatelessWidget {
+
+  static String route = '/add-items';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

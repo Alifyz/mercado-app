@@ -14,7 +14,8 @@ class DatabaseHelper {
   }
 
   static void _populateData(Database db, int version) async {
-    await db.execute(DATABASE_CREATION);
+    await db.execute(DATABASE_GROCERIES);
+    await db.execute(DATABASE_USERLIST);
     await db.execute(INSERT_MEATS);
     await db.execute(INSERT_MILKS);
     await db.execute(INSERT_CLEANING);
