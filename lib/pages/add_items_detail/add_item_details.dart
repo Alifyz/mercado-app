@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/domain/grocery_item.dart';
 import 'package:groceryapp/model/application_model.dart';
+import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/details_utils.dart';
 import 'package:groceryapp/pages/add_items_detail/widgets/grocery_list_widget.dart';
@@ -18,7 +18,10 @@ class AddItemsDetailsPage extends StatelessWidget {
         title: Text('Lista de ${getHeader(args.categoryName)}'),
         actions: <Widget>[
           FlatButton(
-            child: Text('SALVAR', style: TextStyle(color: Colors.white),),
+            child: Text(
+              'SALVAR',
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -44,6 +47,8 @@ class AddItemsDetailsPage extends StatelessWidget {
                 child: Text('Erro ao carregar items da lista'),
               );
             }
+
+            return Container();
           }),
     );
   }

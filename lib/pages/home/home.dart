@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/domain/grocery_item.dart';
 import 'package:groceryapp/model/application_model.dart';
+import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/home/widget/shooping_list_dialog.dart';
 import 'package:groceryapp/pages/user_list_details/user_list_details.dart';
 import 'package:groceryapp/pages/user_list_details/utils/user_list_arguments.dart';

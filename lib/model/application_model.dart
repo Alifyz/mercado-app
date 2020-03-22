@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:groceryapp/domain/grocery_item.dart';
 import 'package:groceryapp/repository/repository.dart';
+import 'grocery_item.dart';
 
 class AppModel with ChangeNotifier {
   List<GroceryItem> _items = [];

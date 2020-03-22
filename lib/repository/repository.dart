@@ -1,4 +1,4 @@
-import 'package:groceryapp/domain/grocery_item.dart';
+import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/repository/database.dart';
 import 'package:groceryapp/repository/database_schema.dart';
 import 'package:sqflite/sqflite.dart';

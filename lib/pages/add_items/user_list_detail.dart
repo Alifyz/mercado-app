@@ -27,18 +27,39 @@ class UserListPage extends StatelessWidget {
       ),
       body: Consumer<AppModel>(
         builder: (BuildContext context, AppModel value, Widget child) {
-          return ListView.builder(
-              itemCount: value.getCurrentGroceries().length,
-              itemBuilder: (contex, index) {
-                return ListTile(
-                  title: Text(value.getCurrentGroceries()[index].title),
-                );
-              });
+          if (value.getCurrentGroceries().isEmpty) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  height: 156,
+                  width: 156,
+                  child: Image.asset('img/empty_items.png'),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  'Nada por aqui, adicione novos items',
+                  textAlign: TextAlign.center,
+                )
+              ],
+            );
+          } else {
+            return ListView.builder(
+                itemCount: value.getCurrentGroceries().length,
+                itemBuilder: (contex, index) {
+                  return ListTile(
+                    title: Text(value.getCurrentGroceries()[index].title),
+                  );
+                });
+          }
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-           await appModel.saveUserGroceriesList(
+          await appModel.saveUserGroceriesList(
             listName,
           );
           appModel.clearList();

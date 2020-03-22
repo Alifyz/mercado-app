@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/domain/grocery_item.dart';
+import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/widgets/grocery_category.dart';
 
