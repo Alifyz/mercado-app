@@ -17,12 +17,11 @@ class AddItemsDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Lista de ${getHeader(args.categoryName)}'),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.check),
+          FlatButton(
+            child: Text('SALVAR', style: TextStyle(color: Colors.white),),
             onPressed: () {
               Navigator.pop(context);
             },
-            tooltip: 'Finalizar',
           )
         ],
       ),

@@ -20,7 +20,7 @@ class GroceryListWidget extends StatelessWidget {
                 child: ListTile(
                   selected: _appModel.getSelectedItems().contains(data[index].id),
                   leading: IconButton(
-                    icon: Icon(Icons.shopping_cart),
+                    icon: Icon(Icons.add),
                     onPressed: () {
                       _appModel.addItem(data[index]);
                     },
