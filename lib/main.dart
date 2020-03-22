@@ -4,6 +4,7 @@ import 'package:groceryapp/pages/add_items/add_items.dart';
 import 'package:groceryapp/pages/add_items/user_list_detail.dart';
 import 'package:groceryapp/pages/add_items_detail/add_item_details.dart';
 import 'package:groceryapp/pages/home/home.dart';
+import 'package:groceryapp/pages/user_list_details/user_list_details.dart';
 import 'package:groceryapp/repository/repository.dart';
 import 'package:provider/provider.dart';
 
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
         create: (_) => new Repository(),
         child: MaterialApp(
           routes: {
-            '/': (context) => HomePage(),
-            '/user-list': (context) => UserListPage(),
-            '/add-items': (context) => AddItemsPage(),
-            '/add-items-details': (context) => AddItemsDetailsPage()
+            HomePage.route: (context) => HomePage(),
+            UserListPage.route: (context) => UserListPage(),
+            UserListDetailsPage.route: (context) => UserListDetailsPage(),
+            AddItemsPage.route: (context) => AddItemsPage(),
+            AddItemsDetailsPage.route: (context) => AddItemsDetailsPage()
           },
           title: 'GroceryListing App',
           theme: ThemeData(

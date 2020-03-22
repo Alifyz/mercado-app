@@ -13,7 +13,8 @@ const DATABASE_USERLIST = """
             CREATE TABLE $TABLE_USERLIST(
               id INTEGER PRIMARY KEY AUTOINCREMENT, 
               listName TEXT, 
-              item_id INTEGER)""";
+              item_id INTEGER,
+              isChecked INTEGER)""";
 
 const INSERT_MEATS = """
   INSERT INTO $TABLE_GROCERIES VALUES

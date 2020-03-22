@@ -40,18 +40,17 @@ class Repository {
 
   Future<List<GroceryList>> getSavedLists() async {
     final Database db = await DatabaseHelper.setupDatabase();
-    final List<Map<String, dynamic>> result = await db.query(
-      TABLE_USERLIST,
-      columns: ['id, listName'],
-      distinct: true,
-      groupBy: 'listName'
-    );
+    final List<Map<String, dynamic>> result = await db.query(TABLE_USERLIST,
+        columns: ['id, listName, item_id, isChecked'],
+        distinct: true,
+        groupBy: 'listName');
 
     return List.generate(result.length, (index) {
       return GroceryList(
-        id: result[index]['id'],
-        name: result[index]['listName']
-      );
+          id: result[index]['id'],
+          name: result[index]['listName'],
+          itemId: result[index]['item_id'],
+          isChecked: result[index]['isChecked'] == 0 ? false : true);
     });
   }
 
@@ -59,7 +58,11 @@ class Repository {
       String listName, List<GroceryItem> selectedItems) async {
     final Database db = await DatabaseHelper.setupDatabase();
     for (GroceryItem item in selectedItems) {
-      Map<String, dynamic> data = {'listName': listName, 'item_id': item.id};
+      Map<String, dynamic> data = {
+        'listName': listName,
+        'item_id': item.id,
+        'isChecked': 0
+      };
       await db.insert(
         TABLE_USERLIST,
         data,
