@@ -70,27 +70,9 @@ class Repository {
     });
   }
 
-  // Future<void> saveCurrentItems(
-  //     String listName, List<GroceryItem> selectedItems) async {
-  //   final Database db = await DatabaseHelper.initDatabase();
-  //   for (GroceryItem item in selectedItems) {
-  //     Map<String, dynamic> data = {
-  //       'listName': listName,
-  //       'item_id': item.id,
-  //       'isChecked': 0
-  //     };
-  //     await db.insert(
-  //       TABLE_USERLIST,
-  //       data,
-  //       conflictAlgorithm: ConflictAlgorithm.replace,
-  //     );
-  //   }
-  // }
-
   Future<void> saveUserGroceriesList(
       String listName, List<GroceryItem> selectedItems) async {
     final Database db = await DatabaseHelper.initDatabase();
-    // selectedItems.forEach((item) => item.listName = listName);
     for (GroceryItem item in selectedItems) {
       Map<String, dynamic> data = {
         'listName': listName,
