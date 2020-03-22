@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/pages/home/home.dart';
-import 'package:groceryapp/repository/repository.dart';
 import 'package:provider/provider.dart';
 
 class UserListPage extends StatelessWidget {
@@ -10,7 +9,6 @@ class UserListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String listName = ModalRoute.of(context).settings.arguments;
-    final Repository repository = Provider.of<Repository>(context);
     final AppModel appModel = Provider.of<AppModel>(context);
     return Scaffold(
       appBar: AppBar(
@@ -40,9 +38,8 @@ class UserListPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          await repository.saveUserGroceriesList(
+           await appModel.saveUserGroceriesList(
             listName,
-            appModel.getCurrentGroceries(),
           );
           appModel.clearList();
           Navigator.pushNamedAndRemoveUntil(

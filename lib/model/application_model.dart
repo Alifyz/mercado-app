@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:groceryapp/domain/grocery_item.dart';
+import 'package:groceryapp/repository/repository.dart';
 
 class AppModel with ChangeNotifier {
   List<GroceryItem> _items = [];
   List<int> _selectedItems = [];
+  Repository repository;
+
+  AppModel({this.repository});
 
   void addItem(GroceryItem newItem) {
     if (!_items.contains(newItem)) {
@@ -30,4 +34,30 @@ class AppModel with ChangeNotifier {
     _selectedItems.clear();
   }
 
+  Future<List<GroceryItem>> getGroceriesByCategory(String category) {
+    return repository.getGroceriesByCategory(category);
+  }
+
+  Future<List<GroceryItem>> getAllGroceries() {
+    return repository.getAllGroceries();
+  }
+
+  Future<List<GroceryItem>> getSavedLists() {
+    return repository.getSavedLists();
+  }
+
+  Future<List<GroceryItem>> getGroceriesByListName(String listName) {
+    return repository.getGroceriesByListName(listName);
+  }
+
+  Future<void> saveUserGroceriesList(
+    String listName,
+  ) {
+    return repository.saveUserGroceriesList(listName, getCurrentGroceries());
+  }
+
+  Future<void> updateUserList(GroceryItem itemToUpdate) {
+    repository.updateUserList(itemToUpdate);
+    notifyListeners();
+  }
 }

@@ -3,7 +3,7 @@ class GroceryItem {
   final String title;
   final int quantity;
   final String category;
-  final bool isChecked;
+  bool isChecked;
   String listName;
 
   GroceryItem({

@@ -4,7 +4,6 @@ import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/details_utils.dart';
 import 'package:groceryapp/pages/add_items_detail/widgets/grocery_list_widget.dart';
-import 'package:groceryapp/repository/repository.dart';
 import 'package:provider/provider.dart';
 
 class AddItemsDetailsPage extends StatelessWidget {
@@ -13,7 +12,6 @@ class AddItemsDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AddDetailsArguments args = ModalRoute.of(context).settings.arguments;
-    final Repository _repository = Provider.of<Repository>(context);
     final AppModel _appModel = Provider.of<AppModel>(context);
     return Scaffold(
       appBar: AppBar(
@@ -29,7 +27,7 @@ class AddItemsDetailsPage extends StatelessWidget {
         ],
       ),
       body: FutureBuilder(
-          future: _repository
+          future: _appModel
               .getGroceriesByCategory(getQueryCategory(args.categoryName)),
           builder: (context, AsyncSnapshot<List<GroceryItem>> snapshot) {
             if (!snapshot.hasError && snapshot.hasData) {
