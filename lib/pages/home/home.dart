@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/domain/grocery_item.dart';
 import 'package:groceryapp/domain/grocery_list.dart';
 import 'package:groceryapp/pages/home/widget/shooping_list_dialog.dart';
 import 'package:groceryapp/pages/user_list_details/user_list_details.dart';
@@ -24,7 +25,7 @@ class HomePage extends StatelessWidget {
       ),
       body: FutureBuilder(
           future: repository.getSavedLists(),
-          builder: (context, AsyncSnapshot<List<GroceryList>> snapshot) {
+          builder: (context, AsyncSnapshot<List<GroceryItem>> snapshot) {
             if (!snapshot.hasError && snapshot.hasData) {
               return ListView.builder(
                   itemCount: snapshot.data.length,
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
                             ),
                           );
                         },
-                        title: Text(snapshot.data[index].name),
+                        title: Text(snapshot.data[index].listName),
                       ),
                     );
                   });

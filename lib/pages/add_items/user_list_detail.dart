@@ -16,8 +16,11 @@ class UserListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(listName),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add_circle),
+          FlatButton(
+            child: Text(
+              'ADICIONAR ITEMS',
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () {
               Navigator.pushNamed(context, '/add-items');
             },

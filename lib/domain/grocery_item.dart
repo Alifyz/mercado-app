@@ -4,7 +4,7 @@ class GroceryItem {
   final int quantity;
   final String category;
   final bool isChecked;
-  final String listName;
+  String listName;
 
   GroceryItem({
     this.id,

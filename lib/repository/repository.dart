@@ -1,5 +1,4 @@
 import 'package:groceryapp/domain/grocery_item.dart';
-import 'package:groceryapp/domain/grocery_list.dart';
 import 'package:groceryapp/repository/database.dart';
 import 'package:groceryapp/repository/database_schema.dart';
 import 'package:sqflite/sqflite.dart';
@@ -38,18 +37,17 @@ class Repository {
     });
   }
 
-  Future<List<GroceryList>> getSavedLists() async {
+  Future<List<GroceryItem>> getSavedLists() async {
     final Database db = await DatabaseHelper.initDatabase();
-    final List<Map<String, dynamic>> result = await db.query(TABLE_USERLIST,
-        columns: ['id, listName, item_id, isChecked'],
-        distinct: true,
+    final List<Map<String, dynamic>> result = await db.query(TABLE_USERGROCERIES,
+        columns: ['id, listName, isChecked, title'],
         groupBy: 'listName');
 
     return List.generate(result.length, (index) {
-      return GroceryList(
+      return GroceryItem(
           id: result[index]['id'],
-          name: result[index]['listName'],
-          itemId: result[index]['item_id'],
+          listName: result[index]['listName'],
+          title: result[index]['title'],
           isChecked: result[index]['isChecked'] == 0 ? false : true);
     });
   }
@@ -58,7 +56,7 @@ class Repository {
     final Database db = await DatabaseHelper.initDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       TABLE_USERGROCERIES,
-      columns: ['id, title, item_id, isChecked'],
+      columns: ['id, title, isChecked'],
       where: 'listName = ?',
       whereArgs: [listName],
     );
@@ -92,10 +90,10 @@ class Repository {
   Future<void> saveUserGroceriesList(
       String listName, List<GroceryItem> selectedItems) async {
     final Database db = await DatabaseHelper.initDatabase();
+    // selectedItems.forEach((item) => item.listName = listName);
     for (GroceryItem item in selectedItems) {
       Map<String, dynamic> data = {
         'listName': listName,
-        'item_id': item.id,
         'isChecked': 0,
         'title': item.title,
       };

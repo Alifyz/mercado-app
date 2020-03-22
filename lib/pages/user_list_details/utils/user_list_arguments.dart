@@ -1,7 +1,7 @@
-import 'package:groceryapp/domain/grocery_list.dart';
+import 'package:groceryapp/domain/grocery_item.dart';
 
 class UserListDetailsArguments {
-  final GroceryList list;
+  final GroceryItem list;
 
   UserListDetailsArguments({
     this.list,
