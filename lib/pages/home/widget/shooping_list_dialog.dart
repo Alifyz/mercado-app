@@ -64,7 +64,10 @@ class DialogContentWidget extends StatelessWidget {
         key: formKey,
         maxLength: 12,
         controller: textController,
-        decoration: InputDecoration(hintText: inputDescription),
+        decoration: InputDecoration(
+          hintText: inputDescription,
+          icon: Icon(Icons.list),
+        ),
       ),
     );
   }
