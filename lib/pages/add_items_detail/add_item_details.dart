@@ -4,6 +4,7 @@ import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/details_utils.dart';
 import 'package:groceryapp/pages/add_items_detail/widgets/grocery_list_widget.dart';
+import 'package:groceryapp/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
 class AddItemsDetailsPage extends StatelessWidget {
@@ -43,9 +44,7 @@ class AddItemsDetailsPage extends StatelessWidget {
             }
 
             if (snapshot.hasError) {
-              return Center(
-                child: Text('Erro ao carregar items da lista'),
-              );
+              return LoadingIndicatorWidget();
             }
 
             return Container();

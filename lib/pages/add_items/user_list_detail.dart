@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/model/application_model.dart';
+import 'package:groceryapp/pages/add_items/widgets/empty_items.dart';
 import 'package:groceryapp/pages/home/home.dart';
 import 'package:provider/provider.dart';
 
@@ -28,24 +29,7 @@ class UserListPage extends StatelessWidget {
       body: Consumer<AppModel>(
         builder: (BuildContext context, AppModel value, Widget child) {
           if (value.getCurrentGroceries().isEmpty) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  height: 156,
-                  width: 156,
-                  child: Image.asset('img/empty_items.png'),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  'Nada por aqui, adicione novos items',
-                  textAlign: TextAlign.center,
-                )
-              ],
-            );
+            return EmptyItemsWidget();
           } else {
             return ListView.builder(
                 itemCount: value.getCurrentGroceries().length,

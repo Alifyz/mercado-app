@@ -4,6 +4,7 @@ import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/home/widget/shooping_list_dialog.dart';
 import 'package:groceryapp/pages/user_list_details/user_list_details.dart';
 import 'package:groceryapp/pages/user_list_details/utils/user_list_arguments.dart';
+import 'package:groceryapp/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -51,14 +52,10 @@ class HomePage extends StatelessWidget {
                         );
                       });
                 }
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
+                return LoadingIndicatorWidget();
               });
         },
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
+        child: LoadingIndicatorWidget(),
       ),
     );
   }
