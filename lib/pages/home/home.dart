@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/model/grocery_item.dart';
+import 'package:groceryapp/pages/home/widget/modal_widget.dart';
 import 'package:groceryapp/pages/home/widget/shooping_list_dialog.dart';
 import 'package:groceryapp/pages/user_list_details/user_list_details.dart';
 import 'package:groceryapp/pages/user_list_details/utils/user_list_arguments.dart';
@@ -19,7 +20,17 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          makeDialog(context);
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: ModalWidget(),
+              ),
+            ),
+          );
         },
       ),
       body: Consumer<AppModel>(
