@@ -1,24 +1,37 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:groceryapp/model/application_model.dart';
 import 'package:groceryapp/model/grocery_item.dart';
 import 'package:groceryapp/pages/add_items_detail/utils/arguments.dart';
 import 'package:groceryapp/widgets/grocery_category.dart';
+import 'package:provider/provider.dart';
 
 class AddItemsPage extends StatelessWidget {
   static String route = '/add-items';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Adicionar items"),
         actions: <Widget>[
-           FlatButton(
+          FlatButton(
             child: Text(
               'NOVO ITEM',
               style: TextStyle(color: Colors.white),
             ),
             onPressed: () {
-              //Adicionar um item manual
+              showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder: (context) => SingleChildScrollView(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
+                    child: AddManualItem(),
+                  ),
+                ),
+              );
             },
           )
         ],
@@ -204,6 +217,80 @@ class AddItemsPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class AddManualItem extends StatelessWidget {
+  final _textController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+ 
+  @override
+  Widget build(BuildContext context) {
+    final AppModel _appModel = Provider.of<AppModel>(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Icon(
+          Icons.create,
+          size: 56,
+          color: Colors.green,
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Text(
+          'NOVO PRODUTO MANUAL',
+          style: TextStyle(
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: TextFormField(
+              autofocus: true,
+              controller: _textController,
+              validator: (value) {
+                if(value.isEmpty || value.length <= 3) {
+                  return 'Nome vazio ou pequeno demais';
+                }else {
+                  return null;
+                }
+              },
+              decoration: InputDecoration(
+                hintText: 'Nome do produto',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FlatButton(
+            color: Theme.of(context).primaryColor,
+            onPressed: () {
+              if(_formKey.currentState.validate()) {
+                final newItem = GroceryItem(
+                  id: Random().nextInt(65535),
+                  category: 'Other',
+                  quantity: 1,
+                  title: _textController.text
+                );
+                _appModel.addItem(newItem);
+                Navigator.pop(context);
+              }
+            },
+            child: Text(
+              'SALVAR',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
