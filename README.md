@@ -1,16 +1,18 @@
-# groceryapp
+# MercadoApp 
 
-A GroceryListing app
+Simple app to manage your grocery shopping list and help you save money. 
 
-## Getting Started
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/alifyz) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-This project is a starting point for a Flutter application.
+ [![AppPreview](https://thumbs.gfycat.com/NeglectedWigglyIsabellineshrike-small.gif)
 
-A few resources to get you started if this is your first Flutter project:
+## App Insights
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+The goal of this project is to use the provider state management technique to build an app that could be more modern when managing state across different screens. 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Plugins used
+
+* [sqflite](https://pub.dev/packages/sqflite) Simple SQLite abstraction for flutter
+* [provider](https://pub.dev/packages/provider) State Management package
+* [flutter-icons](https://pub.dev/packages/flutter_launcher_icons) Flutter app generator icons
+
