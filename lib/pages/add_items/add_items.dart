@@ -159,17 +159,6 @@ class AddItemsPage extends StatelessWidget {
             assetPath: 'img/pasta.png',
           ),
           GroceryCategory(
-            title: 'Higiene pessoal',
-            onDetailsScreen: () => Navigator.popAndPushNamed(
-              context,
-              '/add-items-details',
-              arguments: AddDetailsArguments(
-                categoryName: Category.Personal,
-              ),
-            ),
-            assetPath: 'img/personal.png',
-          ),
-          GroceryCategory(
             title: 'Molhos e temperos',
             onDetailsScreen: () => Navigator.popAndPushNamed(
               context,
@@ -179,28 +168,6 @@ class AddItemsPage extends StatelessWidget {
               ),
             ),
             assetPath: 'img/sauce.png',
-          ),
-          GroceryCategory(
-            title: 'Papelaria',
-            onDetailsScreen: () => Navigator.popAndPushNamed(
-              context,
-              '/add-items-details',
-              arguments: AddDetailsArguments(
-                categoryName: Category.Paper,
-              ),
-            ),
-            assetPath: 'img/paper.png',
-          ),
-          GroceryCategory(
-            title: 'Peixe',
-            onDetailsScreen: () => Navigator.popAndPushNamed(
-              context,
-              '/add-items-details',
-              arguments: AddDetailsArguments(
-                categoryName: Category.Fish,
-              ),
-            ),
-            assetPath: 'img/fish.png',
           ),
           GroceryCategory(
             title: 'Padaria',

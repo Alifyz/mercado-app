@@ -69,7 +69,8 @@ const INSERT_MILKS = """
   (213,"Queijo gorgonzola",1,"Milk"),
   (214,"Queijo processado",1,"Milk"),
   (215,"Queijo provolone",1,"Milk"),
-  (216,"Queijo ralado",1,"Milk")
+  (216,"Queijo ralado",1,"Milk"),
+  (217,"Leite em pó",1,"Milk")
 """;
 
 const INSERT_CLEANING = """
@@ -192,4 +193,85 @@ const INSERT_COFFEE = """
   (801,"Café em pó",1,"Coffe"),
   (802,"Café puro",1,"Coffe"),
   (803,"Chá",1,"Coffe")
+""";
+
+const INSERT_HOUSE = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (900,"Pano de chão",1,"House"),
+  (901,"Utensilhos domésticos",1,"House"),
+  (902,"Pratos",1,"House"),
+  (903,"Copos",1,"House"),
+  (904,"Garfo e colheres",1,"House"),
+  (905,"Vasilhas",1,"House"),
+  (906,"Liquidificador",1,"House"),
+  (907,"Batedeira",1,"House"),
+  (908,"Limpa fogão",1,"House"),
+  (909,"Tira limo",1,"House")
+""";
+
+const INSERT_KIDS = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1000,"Frauda",1,"Kids"),
+  (1001,"Mamadeira",1,"Kids"),
+  (1002,"Brinquedo",1,"Kids"),
+  (1003,"Leite em pó",1,"Kids")
+""";
+
+const INSERT_SWEET = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1100,"Bombom",1,"Sweet"),
+  (1101,"Chocolate",1,"Sweet"),
+  (1102,"Doce de leite",1,"Sweet"),
+  (1103,"Geleia",1,"Sweet"),
+  (1104,"Doce de banana",1,"Sweet"),
+  (1105,"Outros doces",1,"Sweet")
+""";
+
+const INSERT_PHARMACY = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1200,"Remério para dor de cabeça",1,"Pharmacy"),
+  (1201,"Cotonete",1,"Pharmacy"),
+  (1202,"Desodorante",1,"Pharmacy"),
+  (1203,"Teste de gravidez",1,"Pharmacy"),
+  (1204,"Preservativos",1,"Pharmacy")
+""";
+
+const INSERT_PASTA = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1300,"Grão de bico",1,"Pasta"),
+  (1301,"Macarrão parafuso",1,"Pasta"),
+  (1302,"Macarrão normal",1,"Pasta"),
+  (1303,"Spaghetti",1,"Pasta"),
+  (1304,"Cup noddles",1,"Pasta"),
+  (1305,"Cup noddles",1,"Pasta")
+""";
+
+const INSERT_SAUCE = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1400,"Molho de tomate",1,"Sauce"),
+  (1401,"Alho",1,"Sauce"),
+  (1402,"Pimenta",1,"Sauce"),
+  (1403,"Curry",1,"Sauce"),
+  (1404,"Ketchup",1,"Sauce"),
+  (1405,"Maionese",1,"Sauce"),
+  (1406,"Mostarda",1,"Sauce")
+""";
+
+const INSERT_BAKERY = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1500,"Pão francês",1,"Bakery"),
+  (1501,"Pão de forma",1,"Bakery"),
+  (1502,"Rosca",1,"Bakery"),
+  (1503,"Bolacha",1,"Bakery"),
+  (1504,"Biscoito",1,"Bakery")
+""";
+
+const INSERT_HEALTH = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (1600,"Maquiagem",1,"Health"),
+  (1601,"Shampoo",1,"Health"),
+  (1602,"Condicionador",1,"Health"),
+  (1603,"Absorvente",1,"Health"),
+  (1604,"Absorvente interno",1,"Health"),
+  (1605,"Sabonete",1,"Health")
 """;
