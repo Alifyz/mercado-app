@@ -22,5 +22,16 @@ class DatabaseHelper {
     await db.execute(INSERT_CLEANING);
     await db.execute(INSERT_FIBER);
     await db.execute(INSERT_FRUIT);
+    await db.execute(INSERT_PETS);
+    await db.execute(INSERT_DRINKS);
+    await db.execute(INSERT_COFFEE);
+    await db.execute(INSERT_HOUSE);
+    await db.execute(INSERT_KIDS);
+    await db.execute(INSERT_SWEET);
+    await db.execute(INSERT_PHARMACY);
+    await db.execute(INSERT_PASTA);
+    await db.execute(INSERT_SAUCE);
+    await db.execute(INSERT_BAKERY);
+    await db.execute(INSERT_HEALTH);
   }
 }

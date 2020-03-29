@@ -11,6 +11,17 @@ class AddItemsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Adicionar items"),
+        actions: <Widget>[
+           FlatButton(
+            child: Text(
+              'NOVO ITEM',
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () {
+              //Adicionar um item manual
+            },
+          )
+        ],
       ),
       body: GridView.count(
         crossAxisCount: 2,

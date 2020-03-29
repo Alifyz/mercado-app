@@ -45,7 +45,7 @@ String getQueryCategory(Category category) {
       return 'Drink';
       break;
     case Category.Coffe:
-      return 'Coffee';
+      return 'Coffe';
       break;
     case Category.House:
       return 'House';

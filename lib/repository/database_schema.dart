@@ -177,14 +177,14 @@ const INSERT_PETS = """
 const INSERT_DRINKS = """
   INSERT INTO $TABLE_GROCERIES VALUES
   (700,"Água filtrada",1,"Drink"),
-  (700,"Água com gás",1,"Drink"),
-  (700,"Água sem gás",1,"Drink"),
-  (700,"Suco",1,"Drink"),
-  (700,"Refrigerante",1,"Drink"),
-  (700,"Cerveja",1,"Drink"),
-  (700,"Vinho",1,"Drink"),
-  (700,"Whisky",1,"Drink"),
-  (700,"Outras bebidas",1,"Drink")
+  (701,"Água com gás",1,"Drink"),
+  (702,"Água sem gás",1,"Drink"),
+  (703,"Suco",1,"Drink"),
+  (704,"Refrigerante",1,"Drink"),
+  (705,"Cerveja",1,"Drink"),
+  (706,"Vinho",1,"Drink"),
+  (707,"Whisky",1,"Drink"),
+  (708,"Outras bebidas",1,"Drink")
 """;
 
 const INSERT_COFFEE = """
