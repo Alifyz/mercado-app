@@ -21,5 +21,6 @@ class DatabaseHelper {
     await db.execute(INSERT_MILKS);
     await db.execute(INSERT_CLEANING);
     await db.execute(INSERT_FIBER);
+    await db.execute(INSERT_FRUIT);
   }
 }

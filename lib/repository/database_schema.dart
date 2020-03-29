@@ -133,3 +133,63 @@ const INSERT_FIBER = """
   (437,"Repolho",1,"Fiber")
 """;
 
+
+const INSERT_FRUIT = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (500,"Laranja",1,"Fruit"),
+  (501,"Mamão",1,"Fruit"),
+  (502,"Maça",1,"Fruit"),
+  (503,"Melancia",1,"Fruit"),
+  (504,"Limão",1,"Fruit"),
+  (505,"Tangerina",1,"Fruit"),
+  (506,"Manga",1,"Fruit"),
+  (507,"Abacaxi",1,"Fruit"),
+  (508,"Pera",1,"Fruit"),
+  (509,"Melão",1,"Fruit"),
+  (510,"Banana",1,"Fruit"),
+  (511,"Uva",1,"Fruit"),
+  (512,"Maracujá",1,"Fruit"),
+  (513,"Abacate",1,"Fruit"),
+  (514,"Coco verde",1,"Fruit"),
+  (515,"Caqui",1,"Fruit"),
+  (516,"Ameixa",1,"Fruit"),
+  (517,"Mexerica",1,"Fruit"),
+  (518,"Pêssego",1,"Fruit"),
+  (519,"Kiwi",1,"Fruit")
+""";
+
+
+const INSERT_PETS = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (600,"Ração para cachorro",1,"Pet"),
+  (601,"Ração para gato",1,"Pet"),
+  (602,"Outras ração",1,"Pet"),
+  (603,"Anti-pulga/carrapato",1,"Pet"),
+  (604,"Whiskas",1,"Pet"),
+  (605,"Petisco para cachorro",1,"Pet"),
+  (606,"Petisco para gato",1,"Pet"),
+  (607,"Coleira",1,"Pet"),
+  (608,"Guia de passeio",1,"Pet"),
+  (609,"Cama de dormir",1,"Pet")
+""";
+
+const INSERT_DRINKS = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (700,"Água filtrada",1,"Drink"),
+  (700,"Água com gás",1,"Drink"),
+  (700,"Água sem gás",1,"Drink"),
+  (700,"Suco",1,"Drink"),
+  (700,"Refrigerante",1,"Drink"),
+  (700,"Cerveja",1,"Drink"),
+  (700,"Vinho",1,"Drink"),
+  (700,"Whisky",1,"Drink"),
+  (700,"Outras bebidas",1,"Drink")
+""";
+
+const INSERT_COFFEE = """
+  INSERT INTO $TABLE_GROCERIES VALUES
+  (800,"Café em capsula",1,"Coffe"),
+  (801,"Café em pó",1,"Coffe"),
+  (802,"Café puro",1,"Coffe"),
+  (803,"Chá",1,"Coffe")
+""";
